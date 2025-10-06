@@ -1,0 +1,62 @@
+<section class="bg-gray-100 py-12 sm:py-14 md:py-16 lg:py-20 border-t border-b border-gray-300 flex justify-center">
+    <div class="container px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-green-600 text-center mb-8 sm:mb-10">
+            Categories List
+        </h2>
+        <div
+            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+            @for (category of allCategories() ; track category._id) {
+
+            <div class="border border-green-400/50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer bg-white"
+                [routerLink]="'/products'">
+
+                <!-- Image Section -->
+                <div class="relative h-48 overflow-hidden">
+                    <img [src]="category.image" [alt]="category.name"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+
+                    <!-- Gradient Overlay on Hover -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent 
+                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+                      flex items-end p-4">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">{{ category.name }}</h3>
+                            <p class="text-white/90 text-sm">
+                                <i class="fas fa-box mr-1"></i> Explore Products
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="p-4">
+                    <!-- Category Name with Arrow -->
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-semibold text-gray-800 text-lg truncate">
+                            {{ category.name }}
+                        </h4>
+                        <i
+                            class="fas fa-arrow-right text-green-500 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">
+                        Discover amazing {{ category.name.toLowerCase() }} products
+                    </p>
+
+                    <!-- Browse Button -->
+                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 
+                text-white font-semibold py-2.5 px-4 rounded-md 
+                transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        Browse Category
+                    </button>
+                </div>
+            </div>
+
+
+
+            }
+        </div>
+    </div>
+</section>

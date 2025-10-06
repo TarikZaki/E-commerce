@@ -1,0 +1,97 @@
+<section class="bg-gray-200 py-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+
+        <!-- Page Header -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <h1 class="text-3xl font-bold text-gray-800">Checkout</h1>
+                <div class="flex items-center text-sm text-gray-600">
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">
+                        <i class="fas fa-shield-alt mr-1"></i>
+                        Secure Checkout
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+            <!-- Shipping Information -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-shipping-fast text-green-600 mr-3"></i>
+                    Shipping Information
+                </h2>
+                <div formGroupName="shippingAddress" class="space-y-6">
+                    <!-- Address Details -->
+                    <app-input [element]="'text'" [control]="checkOutForm.get('shippingAddress')?.get('details')"
+                        [idInput]="'details'" [labelInput]="'Details'">
+                    </app-input>
+
+                    <!-- Phone Number -->
+                    <app-input [element]="'input'" [control]="checkOutForm.get('shippingAddress')?.get('phone')"
+                        [idInput]="'phone'" [labelInput]="'Phone'" [typeInput]="'tel'">accept only Egypt phone number
+                    </app-input>
+                    <!-- City -->
+                    <app-input [element]="'input'" [control]="checkOutForm.get('shippingAddress')?.get('city')"
+                        [idInput]="'city'" [labelInput]="'City'" [typeInput]="'text'">
+                    </app-input>
+                </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-credit-card text-green-600 mr-3"></i>
+                    Payment Method
+                </h2>
+                <div class="space-y-4">
+                    <!-- Cash on Delivery -->
+                    <div
+                        class="border border-gray-300 rounded-lg p-4 hover:border-green-500 transition-colors cursor-pointer">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="paymentMethod" value="cash" formControlName="paymentMethod"
+                                class="text-green-600 focus:ring-green-500">
+                            <div class="ml-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-money-bill-wave text-green-600 mr-2"></i>
+                                    <span class="font-semibold text-gray-800">Cash on Delivery</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">Pay when you receive your order</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Credit Card -->
+                    <div
+                        class="border border-gray-300 rounded-lg p-4 hover:border-green-500 transition-colors cursor-pointer">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="paymentMethod" value="card" formControlName="paymentMethod"
+                                class="text-green-600 focus:ring-green-500">
+                            <div class="ml-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-credit-card text-green-600 mr-2"></i>
+                                    <span class="font-semibold text-gray-800">Credit/Debit Card</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">Pay with your credit or debit card</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Place Order Button -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <button type="submit" [disabled]="isLoading"
+                    class="w-full cursor-pointer bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center">
+                    <i class="fas fa-check-circle mr-3"></i>
+                    Place Order
+                </button>
+                <p class="text-center text-sm text-gray-600 mt-3">
+                    By placing your order, you agree to our terms and conditions
+                </p>
+            </div>
+        </form>
+    </div>
+</section>

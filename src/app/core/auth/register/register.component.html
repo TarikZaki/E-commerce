@@ -1,0 +1,30 @@
+<section class="bg-gray-100 border rounded border-gray-200 p-4 shadow-md md:w-1/2 mx-auto my-12">
+  <h1 class="text-center mb-3 font-light">Register Now</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+
+    <app-input [control]="registerForm.get('name')" [typeInput]="'text'" [idInput]="'name'"
+      [labelInput]="'Name'"></app-input>
+    <app-input [control]="registerForm.get('email')" [typeInput]="'email'" [idInput]="'email'"
+      [labelInput]="'Email'"></app-input>
+    <app-input [control]="registerForm.get('password')" [idInput]="'password'" [labelInput]="'Password'"></app-input>
+
+    <app-input [control]="registerForm.get('rePassword')" [idInput]="'rePassword'"
+      [labelInput]="'RePassword'"></app-input>
+
+    <app-input [control]="registerForm.get('phone')" [typeInput]="'tel'" [idInput]="'phone'" [labelInput]="'Phone'">
+      accept only Egypt phone number
+    </app-input>
+
+
+    <button class="btn-main mt-5" [disabled]="isLoading" type="submit">
+      Register
+      @if (isLoading) {
+      <span class=""> <i class="fas fa-spinner animate-spin"></i></span>
+      }
+    </button>
+    @if (msgError) {
+    <p class="text-red-700 text-center mt-4 bg-red-200 p-4 rounded"> {{msgError}} </p>
+    }
+  </form>
+
+</section>

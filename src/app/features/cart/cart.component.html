@@ -1,0 +1,166 @@
+<!-- <section class="bg-gray-200 p-4">
+    <div class="container grid items-start sm:grid-cols-12 gap-10">
+        <div class="col-span-8 rounded-lg shadow p-4">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-3xl "> Cart</h1>
+                <span class="text-orange-700">{{cartDetails.products.length}} items</span>
+            </div>
+            @for (item of cartDetails.products; track item.product._id) {
+            <div class=" bg-white p-2 rounded-lg shadow my-2 grid sm:grid-cols-12">
+                <div class="col-span-1">
+                    <img [src]="item.product.imageCover" class="w-full" [alt]="item.product.title">
+                </div>
+                <div class="col-span-11 flex items-center justify-between">
+                    <div>
+                        <h3>{{item.product.title}}</h3>
+                        <div class="flex items-center space-x-6 my-3">
+                            <div class="bg-gray-200 border rounded-lg flex items-center space-x-10 py-1 px-2">
+                                <button (click)="updateCount(item.product._id, item.count - 1)"
+                                    class="cursor-pointer"><i class="fas fa-minus"></i></button>
+                                <span>{{item.count}}</span>
+                                <button (click)="updateCount(item.product._id, item.count + 1)"
+                                    class="cursor-pointer"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button (click)="removeItem(item.product._id)" class="cursor-pointer"><i
+                                    class="fas fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                    <span> {{item.price}} EGP</span>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="col-span-4 bg-white rounded-lg shadow p-4">
+            <h2 class="text-2xl">Order Summary</h2>
+            <div class="flex items-center justify-between my-4">
+                <h3>Price</h3>
+                <h4>{{cartDetails.totalCartPrice}}</h4>
+            </div>
+            <button class="btn-main">Proceed To CheckOut</button>
+        </div>
+    </div>
+</section> -->
+<section class="bg-gray-200 py-8">
+    <div class="container mx-auto px-4 grid gap-8 lg:grid-cols-12">
+
+        <!-- Products Section -->
+        <div class="lg:col-span-8">
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h1 class="text-3xl font-bold text-gray-800">Cart</h1>
+                    <span class="bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-semibold">
+                        {{cartDetails.products.length}} items
+                    </span>
+                </div>
+            </div>
+
+            @for (item of cartDetails.products; track item.product._id) {
+            <div class="bg-white rounded-lg shadow p-6 mb-4 hover:shadow-lg transition-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+
+                    <!-- Product Image -->
+                    <div class="md:col-span-3">
+                        <img [src]="item.product.imageCover" class="w-full h-32 object-contain rounded-lg border"
+                            [alt]="item.product.title">
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+                            <!-- Product Info -->
+                            <div class="flex-grow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    {{item.product.title}}
+                                </h3>
+                                <p class="text-sm text-gray-600 mb-4">{{item.product.title}}
+                                </p>
+
+                                <!-- Controls -->
+                                <div class="flex items-center gap-4">
+                                    <!-- Quantity -->
+                                    <div class="flex items-center border border-gray-300 rounded-lg bg-gray-50">
+                                        <button (click)="updateCount(item.product._id, item.count - 1)"
+                                            class="p-3 hover:bg-gray-100 transition-colors cursor-pointer rounded-l-lg">
+                                            <i class="fas fa-minus text-gray-700"></i>
+                                        </button>
+                                        <span
+                                            class="px-4 py-3 border-l border-r border-gray-300 bg-white min-w-[60px] text-center font-semibold">{{item.count}}</span>
+                                        <button (click)="updateCount(item.product._id, item.count + 1)"
+                                            class="p-3 hover:bg-gray-100 transition-colors cursor-pointer rounded-r-lg">
+                                            <i class="fas fa-plus text-gray-700"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Delete -->
+                                    <button (click)="removeItem(item.product._id)"
+                                        class="p-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-green-600">
+                                    {{item.price}} EGP
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            } @empty {
+            <!-- Empty Cart Message -->
+            <div class="bg-white rounded-lg shadow p-12 text-center">
+                <div class="max-w-md mx-auto">
+                    <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-6"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Your cart is empty</h3>
+                    <p class="text-gray-600 mb-6">Looks like you haven't added any items to your cart yet. Start
+                        shopping to fill it up!</p>
+                    <button routerLink="/products"
+                        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer">
+                        <i class="fas fa-plus mr-2"></i>
+                        Start Shopping
+                    </button>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Order Summary -->
+        <div class="lg:col-span-4">
+            <div class="bg-white rounded-lg shadow p-6 sticky top-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
+
+                <div class="space-y-4 mb-6">
+                    <div class="flex justify-between py-3 border-b border-gray-200">
+                        <span class="text-gray-700 font-medium">Price:</span>
+                        <span class="font-semibold text-gray-900">{{cartDetails.totalCartPrice}} EGP</span>
+                    </div>
+
+                    <div class="flex justify-between py-3 border-b border-gray-200">
+                        <span class="text-gray-700 font-medium">Shipping:</span>
+                        <span class="font-semibold text-green-600">Free</span>
+                    </div>
+
+                    <div class="flex justify-between py-3 bg-gray-50 px-4 rounded-lg">
+                        <span class="text-lg font-bold text-gray-900">Total:</span>
+                        <span
+                            class="text-lg font-bold text-gray-900">{{cartDetails.totalCartPrice|currency:'GBP'}}</span>
+                    </div>
+                </div>
+
+                <button [routerLink]="['/checkout', cartDetails._id]"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors cursor-pointer mb-4">
+                    Proceed To CheckOut
+                </button>
+
+                <div class="text-center text-sm text-gray-600">
+                    <i class="fas fa-shield-alt text-green-500 mr-1"></i>
+                    Secure checkout guaranteed
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

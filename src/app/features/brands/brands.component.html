@@ -1,0 +1,46 @@
+<section class="bg-gray-50 py-12 sm:py-16 lg:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                Top <span class="text-green-600">Brands</span>
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                Discover products from the world's leading brands
+            </p>
+        </div>
+
+        <!-- Brands Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+
+            @for (brand of allBrands() | paginate: { id: 'foo',
+            itemsPerPage: pageSize,
+            currentPage: p,
+            totalItems: total }; track brand._id) {
+            <div
+                class="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                <!-- Logo Container -->
+                <div class="flex items-center justify-center h-24 mb-4">
+                    <img [src]="brand.image" [alt]="brand.name"
+                        class="max-h-20 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+
+                <!-- Brand Name -->
+                <div class="text-center">
+                    <h3 class="font-semibold text-gray-800 text-sm">{{ brand.name }}</h3>
+                    <div class="flex items-center justify-center gap-1 mt-2">
+                        <i class="fas fa-star text-yellow-400 text-xs"></i>
+                        <span class="text-xs text-gray-500">Premium Brand</span>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+        <div class="flex justify-center mt-12">
+            <pagination-controls class="my-pagination" id="foo" (pageChange)="getAllBrands($event)">
+            </pagination-controls>
+        </div>
+    </div>
+</section>

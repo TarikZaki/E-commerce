@@ -1,0 +1,26 @@
+<div class="border border-green-400/50 rounded-md overflow-hidden shadow p-1 group">
+  <!-- {{hamada | date :'short'}} -->
+  <div class="cursor-pointer" [routerLink]="['/details', product._id]">
+    <div class="card-img">
+      <img [src]="product.imageCover" class="w-full rounded-t" [alt]="product.title " />
+    </div>
+    <div class="card-body px-2 py-4">
+      <h4 class="text-green-500 text-xs">{{ product.category.name | term:2 }}</h4>
+      <h3 class="font-medium line-clamp-1">
+        <!-- .split(" ", 3).join(" ")  -->
+        {{ product.title | onSale | term:3}}
+      </h3>
+      <div class="flex justify-between items-center">
+        <span>{{ product.price | currency }} EGP</span>
+        <div class="flex items-center">
+          <i class="fas fa-star text-yellow-300"></i>
+          <span class="text-gray-500">{{ product.ratingsAverage }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="addProductItemToCart(product._id)"
+    class="btn-main w-full translate-y-[120%] group-hover:translate-y-0">
+    Add To Cart
+  </button>
+</div>

@@ -1,0 +1,23 @@
+<section class="bg-gray-100 border rounded border-gray-200 p-4 shadow-md md:w-1/2 mx-auto my-12">
+    <h1 class="text-center mb-3 font-light">Login Now</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+
+        <app-input [control]="loginForm.get('email')" [typeInput]="'email'" [idInput]="'email'"
+            [labelInput]="'Email'"></app-input>
+        <app-input [control]="loginForm.get('password')" [idInput]="'password'" [labelInput]="'Password'"></app-input>
+        <div class="flex justify-between items-center mt-5">
+            <button class="btn-main" type="submit">
+                Login
+            </button>
+
+            <a routerLink="/forgot" class="text-green-600 hover:text-gray-800 text-sm transition-colors duration-200">
+                Forgot Password?
+            </a>
+        </div>
+        <a href=""></a>
+        @if (msgError) {
+        <p class="text-red-700 text-center mt-4 bg-red-200 p-4 rounded"> {{msgError}} </p>
+        }
+    </form>
+
+</section>
