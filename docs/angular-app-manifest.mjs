@@ -33,7 +33,7 @@ export default {
   {
     "renderMode": 2,
     "preload": [
-      "chunk-4HHUWUOF.js"
+      "chunk-3E2FRGCN.js"
     ],
     "route": "/E-commerce/products"
   },
@@ -68,17 +68,17 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 12632, hash: 'acc0f88aa45d9e968b9068e4fc536ae0051a14d744d7007d18b3fab279842126', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1170, hash: '162bf21340b866621968a2aadc0c775e5bdcaafe4e546e9cfbed5b22fe3b320c', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'register/index.html': {size: 31485, hash: '80c9ded47b4b8a5a1bc3ae729c62f2742836e9fecf34bd5c1ebd10f64cd4076b', text: () => import('./assets-chunks/register_index_html.mjs').then(m => m.default)},
-    'home/index.html': {size: 30668, hash: 'b37e4a9ef8174f66f10dc0e15150efce69832c99bff36c7b88e6c1fc19b66e68', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
-    'brands/index.html': {size: 30667, hash: 'dfd2467ffddef09eca972fce2519884af0c8d6d04d101da399f485163b19d061', text: () => import('./assets-chunks/brands_index_html.mjs').then(m => m.default)},
-    'categories/index.html': {size: 30668, hash: 'b37e4a9ef8174f66f10dc0e15150efce69832c99bff36c7b88e6c1fc19b66e68', text: () => import('./assets-chunks/categories_index_html.mjs').then(m => m.default)},
-    'products/index.html': {size: 30720, hash: '1e2aa482497ed5f71bcdbc2403d49866b8e1c471b586ec803c3bc538fb8ddf4c', text: () => import('./assets-chunks/products_index_html.mjs').then(m => m.default)},
-    'allorders/index.html': {size: 30668, hash: 'b37e4a9ef8174f66f10dc0e15150efce69832c99bff36c7b88e6c1fc19b66e68', text: () => import('./assets-chunks/allorders_index_html.mjs').then(m => m.default)},
-    'forgot/index.html': {size: 32712, hash: '8794e16e316486013c4a6149f338b94a9bee80380eef0c8985d363af3785d316', text: () => import('./assets-chunks/forgot_index_html.mjs').then(m => m.default)},
-    'cart/index.html': {size: 30667, hash: 'dfd2467ffddef09eca972fce2519884af0c8d6d04d101da399f485163b19d061', text: () => import('./assets-chunks/cart_index_html.mjs').then(m => m.default)},
-    'login/index.html': {size: 30667, hash: 'dfd2467ffddef09eca972fce2519884af0c8d6d04d101da399f485163b19d061', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
-    'styles-KEKOCPVG.css': {size: 211338, hash: 'gJFCmeY+39c', text: () => import('./assets-chunks/styles-KEKOCPVG_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 12632, hash: 'cda76093a36ad1dcd6bf66b0809618ee681cce805df0adf8fb9434fbd7afd963', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1170, hash: '82c055fa56522104591c7340f704f1771997685acc51222d81364cb28e95341a', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'login/index.html': {size: 30648, hash: '11f1a981db40c2758af588c7f51f76c1418d6a2c6bf1f44943109710f7561217', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
+    'register/index.html': {size: 31466, hash: '87bf92ca71d3d6e65071898ef09db04a28db34273775696fa543321da006e288', text: () => import('./assets-chunks/register_index_html.mjs').then(m => m.default)},
+    'products/index.html': {size: 30701, hash: '4054827c9d71d2e622b1cbf0294b2fd9998a0f81e063a2ddcf4c82c988c27943', text: () => import('./assets-chunks/products_index_html.mjs').then(m => m.default)},
+    'forgot/index.html': {size: 32693, hash: '62433c44bed4b9c52ebacac092d7717df99313cd0ac4e4b0015be5ebaa158dcd', text: () => import('./assets-chunks/forgot_index_html.mjs').then(m => m.default)},
+    'categories/index.html': {size: 30649, hash: '62dd3498c245a132894f0eec2861ffc661eb4f3b87ea122deeb777f426a8c9b2', text: () => import('./assets-chunks/categories_index_html.mjs').then(m => m.default)},
+    'home/index.html': {size: 30648, hash: '11f1a981db40c2758af588c7f51f76c1418d6a2c6bf1f44943109710f7561217', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
+    'cart/index.html': {size: 30649, hash: '62dd3498c245a132894f0eec2861ffc661eb4f3b87ea122deeb777f426a8c9b2', text: () => import('./assets-chunks/cart_index_html.mjs').then(m => m.default)},
+    'allorders/index.html': {size: 30648, hash: '11f1a981db40c2758af588c7f51f76c1418d6a2c6bf1f44943109710f7561217', text: () => import('./assets-chunks/allorders_index_html.mjs').then(m => m.default)},
+    'brands/index.html': {size: 30648, hash: '11f1a981db40c2758af588c7f51f76c1418d6a2c6bf1f44943109710f7561217', text: () => import('./assets-chunks/brands_index_html.mjs').then(m => m.default)},
+    'styles-Y23KSAJE.css': {size: 211406, hash: '/MGrWFRb9bo', text: () => import('./assets-chunks/styles-Y23KSAJE_css.mjs').then(m => m.default)}
   },
 };

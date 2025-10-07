@@ -1,7 +1,9 @@
 import { FlowbiteService } from './../../../core/services/flowbite.service';
 import {
   Component,
+  ElementRef,
   computed,
+  HostListener,
   inject,
   Input,
   PLATFORM_ID,
@@ -11,7 +13,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { AuthService } from '../../../core/auth/services/auth.service';
 import { CartService } from '../../../features/cart/services/cart.service';
-import { BehaviorSubject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -23,7 +24,24 @@ import { isPlatformBrowser } from '@angular/common';
 export class NavbarComponent {
   private readonly authService = inject(AuthService);
   private readonly cartService = inject(CartService);
+  private readonly elementRef = inject(ElementRef);
   private readonly id = inject(PLATFORM_ID);
+  isMenuOpen: boolean = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const clickedInside = this.elementRef.nativeElement.contains(event.target);
+    if (!clickedInside && this.isMenuOpen) {
+      this.isMenuOpen = false;
+    }
+  }
 
   count: Signal<number> = computed(() => this.cartService.countNumber());
 
@@ -49,5 +67,6 @@ export class NavbarComponent {
 
   signOut(): void {
     this.authService.logOut();
+    this.closeMenu();
   }
 }
