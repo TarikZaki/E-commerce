@@ -19,8 +19,10 @@
       </div>
     </div>
   </div>
-  <button (click)="addProductItemToCart(product._id)"
-    class="btn-main w-full translate-y-[120%] group-hover:translate-y-0">
+  <button (click)="addProductItemToCart(product._id)" class="btn-main w-full 
+    translate-y-0 
+    md:translate-y-[120%] md:group-hover:translate-y-0 
+    transition-transform duration-300">
     Add To Cart
   </button>
 </div>

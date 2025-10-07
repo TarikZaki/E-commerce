@@ -26,23 +26,22 @@ export class DetailsComponent implements OnInit {
   };
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly productDetailsService = inject(ProductDetailsService);
-  private readonly cartService = inject(CartService)
-  private readonly toastrService = inject(ToastrService)
-
+  private readonly cartService = inject(CartService);
+  private readonly toastrService = inject(ToastrService);
 
   addProductItemToCart(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
       next: (res) => {
         console.log(res);
         if (res.status === 'success') {
-          this.toastrService.success(res.message, 'Fresh Cart')
+          this.toastrService.success(res.message, 'Fresh Cart');
+          this.cartService.countNumber.set(res.numOfCartItems);
         }
       },
       error: (err) => {
         console.log(err);
-      }
-    }
-    )
+      },
+    });
   }
 
   id: string | null = null;
